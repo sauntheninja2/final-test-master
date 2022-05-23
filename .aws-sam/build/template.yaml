@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  AppFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: java8
+      Handler: com.maven.cicdhelloworld.helloword::handleRequest
+      Timeout: 60
+      MemorySize: 512
+      CodeUri: AppFunction
+    Metadata:
+      SamResourceId: AppFunction
