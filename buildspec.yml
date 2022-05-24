@@ -17,8 +17,8 @@ phases:
    install:
     commands:
       - mvn clean package
-      - aws cloudformation package --template-file template.yaml --s3-bucket codepipeline-ap-south-1-182844376226
-                                   --output-template-file outputSamTemplate.yaml
+      - aws cloudformation package --template-file template.yaml --s3-bucket codepipeline-ap-south-1-182844376226 --output-template-file outputSamTemplate.yaml
+                                   
   build:
     commands:
       - echo Entered the build phase...
