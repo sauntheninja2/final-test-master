@@ -11,22 +11,34 @@
 #     - template.yaml
 #     - outputSamTemplate.yaml
 
-version: 0.2
+# version: 0.2
 
-phases:
+# phases:
    
+#   build:
+#     commands:
+#       - echo Entered the build phase...
+#       - mvn clean package
+#   post_build:
+#     commands:
+#       - echo Build completed successfully
+# artifacts:
+#   files:
+#     - target/cicdDemo.jar
+#     - template.yaml
+#   discard-paths: yes
+
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+        java: 8
   build:
     commands:
-      - echo Entered the build phase...
-      - mvn clean package
-  post_build:
-    commands:
-      - echo Build completed successfully
+      - sam package --template-file template.yml --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-sacmwffdous0 --output-template-file packaged-template.yml
 artifacts:
   files:
-    - target/cicdDemo.jar
-    - template.yaml
-  discard-paths: yes
+    - packaged-template.yml
   
 
 
