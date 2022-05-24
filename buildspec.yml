@@ -33,10 +33,10 @@ phases:
 
   build:
     commands:
-      - sam package --template-file template.yml --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-sacmwffdous0 --output-template-file packaged-template.yml
+      - sam package --template-file template.yaml --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-sacmwffdous0 --output-template-file packaged-template.yaml
 artifacts:
   files:
-    - packaged-template.yml
+    - packaged-template.yaml
   
 
 
