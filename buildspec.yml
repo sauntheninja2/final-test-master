@@ -17,7 +17,7 @@
    
 #   build:
 #     commands:
-#       - echo Entered the build phase...
+#       - echo Entered the build phase..
 #       - mvn clean package
 #   post_build:
 #     commands:
