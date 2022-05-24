@@ -38,18 +38,30 @@
 #   files:
 #     - packaged-template.yaml
  
-version: 0.2
+# version: 0.2
+# phases:
+#   install:
+#     commands:
+#     - make init
+#   build:
+#     commands:
+#     - make
+#     - make package
+# artifacts:
+#   files:
+#     - .aws-sam/packaged-app.yml
+#   discard-paths: yes
+
+version: 0.1
 phases:
   install:
     commands:
-    - make init
-  build:
-    commands:
-    - make
-    - make package
+      - mvn package
+      - aws cloudformation package --template-file template.yaml --s3-bucket sam-local-java --output-template-file template-export.yaml
 artifacts:
+  type: zip
   files:
-    - .aws-sam/packaged-app.yml
-  discard-paths: yes
+    - template-export.yaml
+
 
 
