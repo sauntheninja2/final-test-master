@@ -30,9 +30,7 @@
 
 version: 0.2
 phases:
-  install:
-    runtime-versions:
-        java: 8
+
   build:
     commands:
       - sam package --template-file template.yml --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-sacmwffdous0 --output-template-file packaged-template.yml
