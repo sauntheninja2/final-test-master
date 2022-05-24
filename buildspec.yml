@@ -28,15 +28,28 @@
 #     - template.yaml
 #   discard-paths: yes
 
-version: 0.2
-phases:
+# version: 0.2
+# phases:
 
+#   build:
+#     commands:
+#       - sam package --template-file template.yaml --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-sacmwffdous0 --output-template-file packaged-template.yaml
+# artifacts:
+#   files:
+#     - packaged-template.yaml
+ 
+ version: 0.2
+phases:
+  install:
+    commands:
+    - make init
   build:
     commands:
-      - sam package --template-file template.yaml --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-sacmwffdous0 --output-template-file packaged-template.yaml
+    - make
+    - make package
 artifacts:
   files:
-    - packaged-template.yaml
-  
+    - .aws-sam/packaged-app.yml
+  discard-paths: yes
 
 
