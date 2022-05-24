@@ -1,18 +1,14 @@
-version: 0.2
-
+version: 0.1
 phases:
-  build:
+  install:
     commands:
-      - echo Entered the build phase...
-#       - mvn clean package
-  post_build:
-    commands:
-      - echo Build completed successfully
-      - aws cloudformation package --template-file template.yaml --s3-bucket codepipeline-ap-south-1-182844376226 --output-template-file packaged.yaml
+      - mvn clean package
+      - aws cloudformation package --template-file template.yaml --s3-bucket aws-lambda-java-db
+                                   --output-template-file outputSamTemplate.yaml
 artifacts:
+  type: zip
   files:
-    - target/cicdDemo.jar
     - template.yaml
-  discard-paths: yes
-  
-  
+    - outputSamTemplate.yaml
+
+
