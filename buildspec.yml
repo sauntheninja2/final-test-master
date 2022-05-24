@@ -1,12 +1,12 @@
-
 version: 0.1
 phases:
   install:
     commands:
-      - mvn package
-      - aws cloudformation package --template-file template.yaml --s3-bucket codepipeline-ap-south-1-434020089465 --output-template-file template-export.yaml
+      - mvn clean package
+      - aws cloudformation package --template-file template.yaml --s3-bucket codepipeline-ap-south-1-434020089465
+                                   --output-template-file outputSamTemplate.yaml
 artifacts:
   type: zip
   files:
     - template.yaml
-    -template-export.yaml
+    - outputSamTemplate.yaml
