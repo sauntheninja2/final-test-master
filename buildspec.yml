@@ -33,7 +33,7 @@
 
 #   build:
 #     commands:
-#       - sam package --template-file template.yaml --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-sacmwffdous0 --output-template-file packaged-template.yaml
+#       - sam package --template-file template.yaml --s3-bucket codepipeline-ap-south-1-434020089465 --output-template-file packaged-template.yaml
 # artifacts:
 #   files:
 #     - packaged-template.yaml
@@ -61,7 +61,8 @@ phases:
 artifacts:
   type: zip
   files:
-    - template-export.yaml
+    - template.yaml
+    -template-export.yaml
 
 
 
