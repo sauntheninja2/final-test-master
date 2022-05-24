@@ -4,7 +4,6 @@ phases:
   build:
     commands:
       - echo Entered the build phase...
-      - sam package --template-file template.yaml --s3-bucket codepipeline-ap-south-1-182844376226 --output-template-file packaged-template.yaml
 #       - mvn clean package
   post_build:
     commands:
