@@ -38,7 +38,7 @@
 #   files:
 #     - packaged-template.yaml
  
- version: 0.2
+version: 0.2
 phases:
   install:
     commands:
